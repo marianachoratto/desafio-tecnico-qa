@@ -1,0 +1,15 @@
+{
+  "name": "qa-pl-challenge",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start:dev": "node backend/server.js",
+    "cy:open": "cypress open",
+    "test": "start-server-and-test start:dev http://localhost:3000 'cypress run'"
+  },
+  "devDependencies": {
+    "cypress": "^13.17.0",
+    "start-server-and-test": "^2.0.3",
+    "typescript": "^5.9.3"
+  }
+}
