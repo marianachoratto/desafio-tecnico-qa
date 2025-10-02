@@ -35,7 +35,7 @@ describe("Login tests- Happy path", () => {
   // TODO: See if clients and user permissions are the same
 });
 
-describe.only("Login tests- negative scenarios", () => {
+describe("Login tests- negative scenarios", () => {
   beforeEach(() => {
     cy.visit("/");
   });
