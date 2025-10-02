@@ -7,4 +7,12 @@ export class Products {
   productInfo = ".product-info";
   stock = ".stock";
   buttonOutOfStock = "button:disabled";
+  subTotal = "span#subtotal";
+  finalTotal = "span#final-total";
+  buttonCheckoutPurchase = "#checkout-btn";
+  jsonResult = "#result";
+
+  AddKeyboardToCart() {
+    cy.get(this.buttonAdd).click();
+  }
 }
