@@ -6,9 +6,9 @@ services:
     environment:
       - NODE_ENV=production
 
-  cypress_runner:
-    build: ./cypress
-    container_name: cypress_runner_dev
-    depends_on: web
-    environment:
-      CYPRESS_BASE_URL: http://web:3000
+  # cypress_runner:
+  #   build: ./cypress
+  #   container_name: cypress_runner_dev
+  #   depends_on: web
+  #   environment:
+  #     CYPRESS_BASE_URL: http://web:3000
