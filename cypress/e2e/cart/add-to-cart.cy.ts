@@ -7,11 +7,6 @@ let sotckValuePlusOne;
 let stock;
 
 describe("Cart Tests- Happy path", () => {
-  // before(() => {
-  //   cy.wait(20000);
-  //   cy.task("exec", "docker compose up --build");
-  // });
-
   beforeEach(() => {
     cy.visit("/");
     login.DoLogin();
