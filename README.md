@@ -76,9 +76,3 @@ To run the tests locally, please follow these steps:
     npx cypress open
     npx cypress run (for running all the tests in terminal)
     ```
-
------
-
-## 📄 License
-
-This project is licensed under the MIT License.
