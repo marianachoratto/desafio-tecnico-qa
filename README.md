@@ -1,118 +1,90 @@
-# BIX Mini E-commerce - Desafio Técnico QA
+# BIX Mini E-commerce 
 
-Um mini e-commerce com funcionalidades de autenticação, gestão de estoque e sistema de cupons de desconto.
+<img width="751" height="303" alt="image" src="https://github.com/user-attachments/assets/34bb9943-3e4e-43b3-83f6-312c4a996ee4" />
 
-## 🚀 Funcionalidades Implementadas
+Of course\! Here is a clean, professional, and "bonitinho" README file in English based on the test cases you provided.
 
-### ✅ Autenticação de Usuários
+This is written in Markdown format, so you can copy and paste it directly into a `README.md` file in your GitHub repository.
 
-- Sistema de login/logout
-- Sessões persistentes com localStorage
-- Proteção de rotas para checkout
+-----
 
-### ✅ Gestão de Estoque
+# 🧪 E-commerce QA Test Suite
 
-- Controle de quantidade disponível por produto
-- Validação de estoque em tempo real
-- Atualização automática após compras
-- Interface adaptativa (botões desabilitados quando sem estoque)
+This repository contains the automated test suite for the "Desafio Técnico QA" project. The goal of these tests is to ensure the quality, reliability, and functionality of the e-commerce application's core features, from user authentication to final purchase.
 
-### ✅ Sistema de Cupons de Desconto
+-----
 
-- Cupons de desconto percentual e valor fixo
-- Validação de cupons ativos/expirados
-- Aplicação automática no checkout
-- Cálculo de subtotal, desconto e total final
+## 🚀 Features Under Test
 
-### ✅ Carrinho de Compras
+The test cases are organized by application functionality and cover both positive and negative scenarios.
 
-- Adição múltipla de produtos
-- Validação de quantidade vs estoque
-- Cálculo automático de totais
-- Limpeza automática após checkout
+### **Authentication (Login & Logout)**
 
-## 🛠️ Tecnologias
+  * ✅ Should allow a user with valid credentials to log in.
+  * ✅ Should keep the user logged in after a page reload.
+  * ✅ Should log the user out when they click the 'Logout' button.
+  * ❌ Should not allow login with an incorrect password.
+  * ❌ Should not allow login with a non-existent email.
 
-- **Backend**: Node.js + Express
-- **Frontend**: HTML5 + CSS3 + JavaScript Vanilla
-- **Containerização**: Docker + Docker Compose
+### **Shopping Cart Management**
 
-## 📋 Pré-requisitos
+  * ✅ Should add a product to the cart.
+  * ✅ Should add multiple different products to the cart.
+  * ✅ Should allow adding more than one unit of the same product.
+  * ✅ The cart total should be zero for a new session.
+  * ❌ Should not allow adding more products to the cart than available in stock.
+  * ❌ Should disable the 'Add' button for out-of-stock products.
+  * ❌ Should not allow completing the purchase with an empty cart.
 
-- Docker e Docker Compose instalados
+### **Coupon & Discount Logic**
 
-## 🚀 Como Executar
+  * ✅ Should correctly apply a 10% discount coupon.
+  * ✅ Should correctly apply a 20% discount coupon.
+  * ✅ Should correctly apply a 50% discount coupon.
+  * ❌ Should not apply an invalid or expired coupon.
+  * ❌ Should not allow the same coupon to be applied twice.
+  * ❌ Should not allow a coupon to be applied to an empty cart.
 
-### Docker
+### **Checkout Process**
 
-```bash
-# Clone o repositório
-git clone <repository-url>
-cd qa-test
+  * ✅ Should complete the purchase successfully with items in the cart.
 
-# Execute com Docker
-docker compose up --build
+-----
 
-# Acesse a aplicação
-open http://localhost:3001
-```
+## 🔧 Technologies Used
 
-## 👤 Credenciais de Teste
+  * **Framework:** `Cypress e Docker`
+  * **Language:** `JavaScript, TypeScript`
 
-### Usuários Disponíveis
+-----
 
-- **Admin**: `admin@test.com` / `admin123`
-- **Usuário**: `user@test.com` / `user123`
+## ⚙️ How to Run the Tests
 
-### Cupons de Desconto
+To run the tests locally, please follow these steps:
 
-- `WELCOME10` - 10% de desconto
-- `SAVE20` - 20% de desconto
-- `FIXED50` - R$ 50,00 de desconto fixo
-- `EXPIRED` - Cupom expirado (para testes)
+1.  **Clone the repository:**
 
-## 📡 API Endpoints
+    ```bash
+    git clone https://github.com/marianachoratto/desafio-tecnico-qa.git
+    cd desafio-tecnico-qa
+    ```
 
-### Autenticação
+2.  **Install dependencies and docker:**
 
-- `POST /api/login` - Login de usuário
-- `POST /api/logout` - Logout de usuário
-- `GET /api/me` - Informações do usuário logado
+    ```bash
+    npm install
+    docker compose up --build
+    ```
 
-### Produtos
+3.  **Run the test suite:**
 
-- `GET /api/products` - Lista de produtos com estoque
+    ```bash
+    npx cypress open
+    npx cypress run (for running all the tests in terminal)
+    ```
 
-### Cupons
+-----
 
-- `POST /api/validate-coupon` - Validar cupom de desconto
+## 📄 License
 
-### Checkout
-
-- `POST /api/checkout` - Finalizar compra com validação de estoque e cupons
-
-### Health Check
-
-- `GET /api/health` - Status da aplicação
-
-## 🏗️ Arquitetura
-
-```
-qa-test/
-├── backend/
-│   ├── data/           # Dados JSON (produtos, usuários, cupons)
-│   ├── public/         # Frontend estático
-│   └── server.js       # Servidor Express
-├── docker-compose.yml  # Configuração Docker
-└── Dockerfile         # Imagem Docker
-```
-
-## 📝 Próximos Passos
-
-### Testes
-
-- Criar testes automatizados para qualidade da aplicação.
-
-## 📄 Licença
-
-Este projeto é parte do processo seletivo da BIX.
+This project is licensed under the MIT License.
