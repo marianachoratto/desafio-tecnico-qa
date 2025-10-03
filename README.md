@@ -2,12 +2,6 @@
 
 <img width="751" height="303" alt="image" src="https://github.com/user-attachments/assets/34bb9943-3e4e-43b3-83f6-312c4a996ee4" />
 
-Of course\! Here is a clean, professional, and "bonitinho" README file in English based on the test cases you provided.
-
-This is written in Markdown format, so you can copy and paste it directly into a `README.md` file in your GitHub repository.
-
------
-
 # 🧪 E-commerce QA Test Suite
 
 This repository contains the automated test suite for the "Desafio Técnico QA" project. The goal of these tests is to ensure the quality, reliability, and functionality of the e-commerce application's core features, from user authentication to final purchase.
