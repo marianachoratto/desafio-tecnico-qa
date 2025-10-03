@@ -31,8 +31,6 @@ describe("Login tests- Happy path", () => {
     cy.reload();
     cy.contains("Regular User").should("be.visible");
   });
-
-  // TODO: See if clients and user permissions are the same
 });
 
 describe("Login tests- negative scenarios", () => {

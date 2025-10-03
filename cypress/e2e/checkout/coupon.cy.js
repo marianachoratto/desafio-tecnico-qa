@@ -6,7 +6,7 @@ const login = new Login();
 const coupon = new Coupons();
 const products = new Products();
 
-describe.only("Checkou Tests- Happy Path", () => {
+describe("Checkout Tests- Happy Path", () => {
   beforeEach(() => {
     cy.visit("/");
     login.DoLogin();
@@ -78,19 +78,39 @@ describe("Checkout Testes- Negative Scenarios", () => {
   beforeEach(() => {
     cy.visit("/");
     login.DoLogin();
+    products.AddKeyboardToCart();
   });
 
-  it("Should not apply an invalid/expired coupon", () => {});
+  it("Should not apply an invalid/expired coupon", () => {
+    cy.get(coupon.inputCoupon).type(coupon.fixad50);
+    cy.get(coupon.buttonApplyCoupon).click();
+  });
 
-  it("Should not apply the same coupon twice", () => {});
+  it("Should not apply the same coupon twice", () => {
+    cy.get(coupon.inputCoupon).type(coupon.fixad50);
+    cy.get(coupon.buttonApplyCoupon).click();
+    cy.get(coupon.inputCoupon).type(coupon.fixad50);
+    cy.get(coupon.buttonApplyCoupon).click();
+    cy.contains("span", "Invalid coupon code").should("exist");
+  });
 
-  //Bug: apply coupon in a empty card
+  //Bug: should not apply coupon in a empty card
   it("Should not apply coupon in a empty card", () => {
     cy.get(coupon.inputCoupon).type(coupon.welcome10);
     cy.get(coupon.buttonApplyCoupon).click();
   });
+});
 
-  it("Should not allow completing the purchase with an empty cart", () => {});
+describe("Checkout Testes- Negative Scenario - Empty card", () => {
+  beforeEach(() => {
+    cy.visit("/");
+    login.DoLogin();
+  });
 
-  it("Should display an error if stock runs out during checkout", () => {});
+  it("Should not allow completing the purchase with an empty cart", () => {
+    cy.get(products.buttonCheckoutPurchase).click();
+    cy.on("window:alert", (alertText) => {
+      expect(alertText).to.equal("Adicione produtos ao carrinho");
+    });
+  });
 });
