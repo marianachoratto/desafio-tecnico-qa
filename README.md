@@ -26,8 +26,8 @@ The test cases are organized by application functionality and cover both positiv
   * ✅ Should add multiple different products to the cart.
   * ✅ Should allow adding more than one unit of the same product.
   * ✅ The cart total should be zero for a new session.
+  * ✅ Should disable the 'Add' button for out-of-stock products.
   * ❌ Should not allow adding more products to the cart than available in stock.
-  * ❌ Should disable the 'Add' button for out-of-stock products.
   * ❌ Should not allow completing the purchase with an empty cart.
 
 ### **Coupon & Discount Logic**
